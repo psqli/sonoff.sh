@@ -19,16 +19,16 @@ main() {
 	shift $(($OPTIND - 1))
 	[ -z "$1" ] && exit_error; address="$1"; shift
 	[ -z "$1" ] && exit_error; cmd="$1"; shift
-	arg="$1"; shift
 
 	# Add a toggle switch option locally
-	if [ "$cmd" = "switch" -a "$arg" = "toggle" ]; then
+	if [ "$cmd" = "switch" -a "$1" = "toggle" ]; then
 		# use grep instead of `jq -r .data.switch` for portability
 		send_request info | grep '"switch":"on"'
 		if [ $? = 0 ]; then arg="off"; else arg="on"; fi
+		set $arg "$@" # Set positional parameters
 	fi
 
-	send_request "$cmd" "$arg" "$@"
+	send_request "$cmd" "$@"
 }
 
 # cmd: $1, cmd_args: ...
