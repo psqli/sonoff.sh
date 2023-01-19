@@ -17,9 +17,9 @@ main() {
 
 	# Skip arguments read above and get fixed arguments
 	shift $(($OPTIND - 1))
-	address="$1"; [ -z "$address" ] && exit_error
-	cmd="$2"; [ -z "$cmd" ] && exit_error
-	arg="$3"
+	[ -z "$1" ] && exit_error; address="$1"; shift
+	[ -z "$1" ] && exit_error; cmd="$1"; shift
+	arg="$1"; shift
 
 	# Add a toggle switch option locally
 	if [ "$cmd" = "switch" -a "$arg" = "toggle" ]; then
@@ -28,7 +28,7 @@ main() {
 		if [ $? = 0 ]; then arg="off"; else arg="on"; fi
 	fi
 
-	send_request $cmd $arg
+	send_request "$cmd" "$arg" "$@"
 }
 
 # cmd: $1, cmd_args: ...
@@ -60,4 +60,4 @@ print_help() {
 }
 exit_error() { print_help; exit 1; }
 
-main $@
+main "$@"
