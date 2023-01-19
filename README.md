@@ -6,8 +6,7 @@ Control [Sonoff](https://sonoff.tech) single channel switches using the
 Supported devices:
 [BASICR3](https://sonoff.tech/product/wifi-diy-smart-switches/basicr3),
 [RFR3](https://sonoff.tech/product/wifi-smart-wall-swithes/rfr3),
-[MINIR2](https://sonoff.tech/product/wifi-diy-smart-switches/sonoff-mini),
-[MINIR3](https://sonoff.tech/product/diy-smart-switch/minir3).
+[MINIR2](https://sonoff.tech/product/wifi-diy-smart-switches/sonoff-mini).
 
 Sonoff API documentation is available
 [here](https://sonoff.tech/sonoff-diy-developer-documentation-basicr3-rfr3-mini-http-api).
