@@ -37,8 +37,8 @@ send_request() {
 	wifi) data="{ \"ssid\": \"${2}\", \"password\": \"${3}\" }";;
 	*) data="{ \"${1}\": \"${2}\" }";;
 	esac
-	printf '{ "deviceId": "%s", "data": %s }' "$device_id" "$data" | \
-	curl --data @- "http://${address}:8081/zeroconf/$1"
+	data="{ \"deviceId\": \"${device_id}\", \"data\": ${data} }"
+	curl --data "$data" "http://${address}:8081/zeroconf/${1}"
 }
 
 print_help() {
