@@ -27,6 +27,18 @@ Get info about switch:
 ./sonoff.sh 192.168.0.123 info
 ```
 
+Set bulb brightness to maximum, and set color to white:
+
+```sh
+./sonoff.sh 192.168.0.123 brgb 100 255 255 255
+```
+
+The same, but for white (warm/cold) bulbs:
+
+```sh
+./sonoff.sh 192.168.0.123 bwht 100 100
+```
+
 Set Wi-Fi network:
 
 ```sh
